@@ -1,0 +1,30 @@
+{
+  "name": "railbed",
+  "displayName": "Railbed",
+  "version": "1.0.0",
+  "description": "Build Railbed card checkout, inspect payments and diagnose webhooks, with every change confirmed in Railbed.",
+  "author": {
+    "name": "Railbed by MediaGlobe",
+    "email": "support@railbed.com",
+    "url": "https://railbed.com"
+  },
+  "homepage": "https://railbed.com/docs/mcp/",
+  "repository": "https://github.com/Railbed/railbed-claude-plugin",
+  "license": "MIT",
+  "keywords": [
+    "railbed",
+    "payments",
+    "checkout",
+    "card payments",
+    "payment links",
+    "webhooks",
+    "merchant api",
+    "usdc",
+    "mcp"
+  ],
+  "icon": "./assets/logo.png",
+  "documentationUrl": "https://railbed.com/docs/mcp/",
+  "supportUrl": "https://railbed.com/contact/",
+  "privacyPolicyUrl": "https://railbed.com/privacy/",
+  "termsOfServiceUrl": "https://railbed.com/terms/"
+}
