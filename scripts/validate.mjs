@@ -101,6 +101,10 @@ const PROSE_RULES = [
   { pattern: new RegExp('\\bClaude ' + 'AI\\b', 'g'), why: 'call it "Claude" or "Claude Code"' },
   { pattern: /\p{Emoji_Presentation}|\p{Regional_Indicator}|\uFE0F|\u200D/gu, why: 'no emoji' },
 ];
+// Anthropic's directory holds for a reviewer any bundled image a README shows other than with Markdown image syntax.
+const README_RULES = [
+  { pattern: /<img\b/gi, why: 'show an image with Markdown image syntax, not an HTML tag (the directory holds HTML images for review)' },
+];
 const HOST_RULES = [
   { pattern: new RegExp('\\b(?:Cur' + 'sor|Gr' + 'ok)\\b', 'g'), why: 'this plugin is for Claude; keep other hosts out of it' },
   { pattern: new RegExp('\\b(?:Chat' + 'GPT|Co' + 'dex)\\b', 'gi'), why: 'this plugin is for Claude; keep other hosts out of it' },
@@ -461,7 +465,7 @@ export function validatePlugin(root = process.cwd()) {
         fail(`${path}:${index + 1}: looks like a wallet recovery phrase; never publish one, even as an example`);
       }
     });
-    for (const { pattern, why } of [...PROSE_RULES, ...(PROSE_FILE.test(path) ? HOST_RULES : [])]) {
+    for (const { pattern, why } of [...PROSE_RULES, ...(PROSE_FILE.test(path) ? HOST_RULES : []), ...(path === 'README.md' ? README_RULES : [])]) {
       for (const hit of content.matchAll(pattern)) fail(`${path}:${lineOf(content, hit.index)}: "${hit[0]}": ${why}`);
     }
   }

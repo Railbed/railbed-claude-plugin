@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.1 — 2026-10-23
+
+- The README no longer embeds the logo; the directory shows the plugin's icon.
+- The Test checkout skill and README say that Claude asks before each simulated payment, now that the server marks `railbed_simulate_payment` as changing data.
+
 ## 1.0.0 — 2026-10-23
 
 - First release, built for Claude Code, Cowork and claude.ai chat.

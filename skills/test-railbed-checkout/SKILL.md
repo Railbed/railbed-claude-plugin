@@ -5,7 +5,7 @@ description: Check a Railbed integration end to end in Test mode with railbed_si
 
 # Test a Railbed checkout end to end
 
-`railbed_simulate_payment` acts out what a card provider would do on a started Test payment. It runs at once with no browser confirmation, charges no card and moves no money. It is the one write that does not wait for the person to confirm.
+`railbed_simulate_payment` acts out what a card provider would do on a started Test payment. It runs at once with no browser confirmation, charges no card and moves no money. It is the one write that does not wait for the person to confirm in Railbed; the host may still ask them to allow each call, because it changes the payment for good.
 
 ## Preconditions
 

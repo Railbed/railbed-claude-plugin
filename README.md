@@ -1,7 +1,5 @@
 # Railbed plugin for Claude
 
-<img src="assets/logo.png" alt="Railbed" width="72" height="72">
-
 The official plugin for [Railbed](https://railbed.com), card checkout for online merchants that mainstream processors turn away. It connects Claude to Railbed's hosted [Model Context Protocol](https://modelcontextprotocol.io/) server and adds skills and a review agent for building and running a Railbed integration. It is built for Claude Code, Cowork, and claude.ai chat on the web, desktop and mobile.
 
 Buyers pay by card through independent, licensed providers, and every sale settles as USDC on Polygon to a wallet the merchant controls. Railbed never holds funds.
@@ -89,7 +87,7 @@ Railbed's [privacy policy](https://railbed.com/privacy/) covers what Railbed col
 ## Safety
 
 - **You confirm every change in Railbed.** Creating a checkout or payment link, cancelling a link and changing or testing a webhook produce a proposal with a confirmation link. Nothing runs until you, signed in to Railbed, confirm it there. Claude reports a change as done only after Railbed says it completed.
-- **One exception, Test mode only.** `railbed_simulate_payment` acts out a card provider's result on a started Test payment straight away. It moves no money, but your Test webhook endpoints receive real signed requests.
+- **One exception, Test mode only.** `railbed_simulate_payment` acts out a card provider's result on a started Test payment without a confirmation in Railbed; Claude still asks you before each call. It moves no money, but your Test webhook endpoints receive real signed requests.
 - **Some things can't be done from here.** The tools can't move funds, refund payments, change payout wallets or fees, accept a held payment or show a secret key or signing secret. Those stay in the Railbed dashboard.
 - **One business, one mode.** A connection is fixed to the business and mode you approved. Tool arguments can't switch it.
 - **Paid means paid.** Payment status comes only from Railbed's settlement evidence, never from a redirect, a closed tab or a webhook delivery code.
