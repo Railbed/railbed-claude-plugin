@@ -40,7 +40,6 @@ After you sign in, Railbed asks you to approve one business, Test or Live mode, 
 
 | Skill | Use |
 | --- | --- |
-| `ground-rules` | The rules for any Railbed task: read first, confirmed changes, paid only from Railbed, no secrets in chat |
 | `connect-railbed` | Connect an account, confirm the business and mode, and disconnect |
 | `integrate-railbed` | Build or extend an integration from the current docs |
 | `review-integration` | Audit an existing integration without changing it |

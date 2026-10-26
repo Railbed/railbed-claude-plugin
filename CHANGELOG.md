@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.2 — 2026-10-26
+
+- The `ground-rules` skill is gone, so it no longer shows in the `/` menu. Railbed's server already gives Claude those instructions when it connects, and each task skill carries the detail for its job.
+
 ## 1.0.1 — 2026-10-23
 
 - The README no longer embeds the logo; the directory shows the plugin's icon.
