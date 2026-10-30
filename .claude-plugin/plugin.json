@@ -1,7 +1,7 @@
 {
   "name": "railbed",
   "displayName": "Railbed",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Build Railbed card checkout, inspect payments and diagnose webhooks, with every change confirmed in Railbed.",
   "author": {
     "name": "Railbed by MediaGlobe",

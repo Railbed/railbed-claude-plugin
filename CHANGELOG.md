@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.0 — 2026-10-30
+
+- The integration skill covers embedded checkout for signed-in users: the embed asks the merchant's server for a session at Continue, and the server makes it from a saved checkout with `POST /v1/checkout_sessions`. It points Claude at the existing-app guide.
+- Server 1.3.0 returns each checkout's `slug`, the value that request takes as `checkout`.
+
 ## 1.0.2 — 2026-10-26
 
 - The `ground-rules` skill is gone, so it no longer shows in the `/` menu. Railbed's server already gives Claude those instructions when it connects, and each task skill carries the detail for its job.
