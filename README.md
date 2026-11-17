@@ -2,7 +2,7 @@
 
 The official plugin for [Railbed](https://railbed.com), card checkout for online merchants that mainstream processors turn away. It connects Claude to Railbed's hosted [Model Context Protocol](https://modelcontextprotocol.io/) server and adds skills and a review agent for building and running a Railbed integration. It is built for Claude Code, Cowork, and claude.ai chat on the web, desktop and mobile.
 
-Buyers pay by card through independent, licensed providers, and every sale settles as USDC on Polygon to a wallet the merchant controls. Railbed never holds funds.
+Buyers pay by card through independent, licensed providers, and sales settle to a wallet the merchant controls, almost always as USDC on Polygon. Railbed never holds funds.
 
 ## Install
 
@@ -63,7 +63,7 @@ After you sign in, Railbed asks you to approve one business, Test or Live mode, 
 }
 ```
 
-Sign-in is OAuth with PKCE. Claude registers itself with Railbed's sign-in service and opens Railbed's sign-in page; there is no API key, token or client ID to configure. The plugin needs Railbed's MCP server 1.2.0 or later.
+Sign-in is OAuth with PKCE. Claude registers itself with Railbed's sign-in service and opens Railbed's sign-in page; there is no API key, token or client ID to configure. The plugin needs Railbed's MCP server 1.5.0 or later.
 
 The server's tools fall into four groups. The server is the source of truth for tool names and schemas.
 
