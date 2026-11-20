@@ -115,12 +115,11 @@ More help: the [Railbed MCP guide](https://railbed.com/docs/mcp/) and [support](
 
 ## What this repository contains
 
-Configuration and instructions only: the manifest, the server's public address, skills, an agent and the logo. It never contains server code, credentials or merchant data, and it ships no hooks, commands or executables. `scripts/validate.mjs` checks all of that in CI; see [SECURITY.md](SECURITY.md).
+Configuration and instructions only: the manifest, the server's public address, skills, an agent and the logo. It never contains server code, credentials or merchant data, and it ships no hooks, commands, scripts or executables. Railbed checks all of that before each release; see [SECURITY.md](SECURITY.md).
 
 To check a change locally:
 
 ```bash
-node scripts/validate.mjs
 claude plugin validate --strict .
 ```
 

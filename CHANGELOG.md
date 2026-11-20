@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.1 — 2026-11-20
+
+- The plugin holds configuration and instructions only: the validation script moved out of this repository, and Railbed runs it before each release. The unused SVG copy of the logo is gone; the icon is the PNG.
+- The review agent reads the `review-integration` skill when it starts, instead of naming it in its frontmatter. It reviews the same way.
+- Needs server 1.9.0, as before.
+
 ## 1.5.0 — 2026-11-20
 
 - New skill, `invoice-customers`: invoice a customer for one amount or several lines, share the invoice's page or email it with its PDF, send a reminder, void it, and answer what is unpaid, overdue or paid. Claude says "invoice" throughout, as Railbed does.

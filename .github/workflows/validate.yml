@@ -21,8 +21,6 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 22
-      - name: Validate the plugin
-        run: node scripts/validate.mjs
       - name: Validate with Claude Code's own validator
         # Pinned to an exact version. The folder check covers marketplace.json and every component; the second covers
         # plugin.json itself.
@@ -42,6 +40,6 @@ jobs:
       - name: Scan every commit with gitleaks
         # Pinned by tag and digest. The image runs with no network and a read-only view of the checkout.
         run: |
-          docker run --rm --network none --user "$(id -u):$(id -g)" --volume "$PWD:/repo:ro" \
+          docker run --rm --network none --user "$(id -u):$(id -g)" --volume "${{ github.workspace }}:/repo:ro" \
             ghcr.io/gitleaks/gitleaks:v8.30.1@sha256:c00b6bd0aeb3071cbcb79009cb16a60dd9e0a7c60e2be9ab65d25e6bc8abbb7f \
             detect --redact --verbose --source /repo

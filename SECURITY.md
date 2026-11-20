@@ -8,7 +8,7 @@ Please don't open a public issue for a security problem. Email security@railbed.
 
 Configuration and instructions only: the plugin manifest, the public address of Railbed's hosted MCP server, skills, a read-only review agent, a README and the logo.
 
-It never holds server code, API keys, webhook signing secrets, OAuth client secrets or other credentials, internal hostnames, or merchant and buyer data. The plugin ships no hooks, commands, executables or other code that runs on your machine; `scripts/validate.mjs` runs only in CI and when you run it yourself. One skill may ask, in Claude Code, to run Railbed's command-line tool from npm at a pinned version (`npx checkouts.md@0.2.0`); it runs only when the person allows the command, and the README says what it does.
+It never holds server code, API keys, webhook signing secrets, OAuth client secrets or other credentials, internal hostnames, or merchant and buyer data. The plugin ships no hooks, commands, scripts, executables or other code that runs on your machine. One skill may ask, in Claude Code, to run Railbed's command-line tool from npm at a pinned version (`npx checkouts.md@0.2.0`); it runs only when the person allows the command, and the README says what it does.
 
 ## How access works
 
@@ -23,5 +23,6 @@ Disconnect at any time from https://app.railbed.io/developers#mcp.
 
 ## Controls
 
-- CI runs `node scripts/validate.mjs` (manifest and component checks, a read-only agent, HTTPS-only allowlisted MCP host, no inline credentials, a secret scan), `claude plugin validate --strict` and gitleaks over the full history on every push and pull request.
+- Before each release Railbed checks the plugin with its own validator: the manifest and components, a read-only agent, an HTTPS-only allowlisted MCP host, no inline credentials, no scripts and a secret scan.
+- CI in this repository runs `claude plugin validate --strict` and gitleaks over the full history on every push and pull request.
 - Adding a new MCP host to the allowlist needs a security review.

@@ -1,7 +1,7 @@
 {
   "name": "railbed",
   "displayName": "Railbed",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Invoice customers, look up payments, build Railbed card checkout and fix webhooks. Every change is a proposal you confirm in Railbed.",
   "author": {
     "name": "Railbed, LLC",
