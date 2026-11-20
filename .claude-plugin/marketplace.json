@@ -1,7 +1,7 @@
 {
   "name": "railbed",
   "owner": {
-    "name": "Railbed by MediaGlobe",
+    "name": "Railbed, LLC",
     "email": "support@railbed.com"
   },
   "metadata": {
@@ -11,7 +11,7 @@
     {
       "name": "railbed",
       "source": "./",
-      "description": "Build Railbed card checkout, inspect payments and diagnose webhooks, with every change confirmed in Railbed."
+      "description": "Invoice customers, look up payments, build Railbed card checkout and fix webhooks. Every change is a proposal you confirm in Railbed."
     }
   ]
 }

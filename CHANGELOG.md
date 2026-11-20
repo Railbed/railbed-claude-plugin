@@ -1,5 +1,27 @@
 # Changelog
 
+## 1.5.0 — 2026-11-20
+
+- New skill, `invoice-customers`: invoice a customer for one amount or several lines, share the invoice's page or email it with its PDF, send a reminder, void it, and answer what is unpaid, overdue or paid. Claude says "invoice" throughout, as Railbed does.
+- `prepare-railbed-changes` now covers reusable checkouts (pages, pricing tables and widgets, with every option the tool takes) and canceling an unpaid one-off link, and sends billing to the invoice skill.
+- The integration and review skills cover the invoices API (`POST /v1/invoices`, which honors `Idempotency-Key` like checkout sessions), invoice webhook events, which reach only an endpoint that names them, changing an endpoint's events with `PATCH /v1/webhook_endpoints/:id`, and paying another saved wallet with `payout_wallet_id` from `GET /v1/payout_wallets`.
+- The webhook skill explains a missing invoice event, sample invoice events and an endpoint removed after answering 410 Gone.
+- The integration skill treats the example integrations at checkouts.md as reference code, and runs Railbed's command-line tool at a pinned version (`npx checkouts.md@0.2.0`) only after saying what it does.
+- The README says what the plugin reads, fetches and may run, lists example requests for invoicing, and has a troubleshooting table.
+- Needs server 1.9.0, as before.
+
+## 1.4.0 — 2026-11-18
+
+- Invoices: Claude can list and read invoices (`railbed_list_invoices`, `railbed_get_invoice`) and prepare an invoice with line items, discount, tax, a due date, part payments and reminders, or emailing or voiding one, for you to confirm in Railbed (`railbed_create_invoice`, `railbed_send_invoice`, `railbed_void_invoice`).
+- Payments read by Claude carry the invoice they're toward (`invoice_id`) and any `tip`.
+- An invoice needs a customer's name and email only to be emailed; one shared by its link can go without them. Invoices also take the card providers they offer and the page the payer lands on after paying.
+- Needs server 1.9.0.
+- The README asks for an invoice where it used to ask for a payment link, and names server 1.9.0 as the version it needs.
+
+## 1.3.1 — 2026-11-17
+
+- The author, publisher and copyright name Railbed, LLC, the company behind Railbed. Nothing else changed.
+
 ## 1.3.0 — 2026-11-17
 
 - The integration skill starts from the tested recipe for the project's stack and the playbook at checkouts.md, instead of a blank page, and ends with the Test proof.

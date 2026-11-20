@@ -18,7 +18,7 @@ description: Check a Railbed integration end to end in Test mode with railbed_si
 The payment must have been started: the buyer, or the person's server, entered an email and was given a way to pay. Simulating before that is refused.
 
 - From the person's integration: have them run their checkout in Test, or call `POST /v1/checkout_sessions` and `POST /v1/checkout_sessions/:id/start` from their server with a Test key.
-- Without code: prepare a Test payment link with `railbed_create_payment_link` (see `prepare-railbed-changes`), have the person confirm it, then ask the person to open the link and continue with an email. Never open the link or enter an email yourself: that starts a payment. `railbed_list_payments` with `status` `open` or `pending` finds recent payments, and `railbed_get_payment` shows `started_at`.
+- Without code: prepare a one-off Test link with `railbed_create_payment_link` (an amount, a currency and a `reference`; Railbed lists it as an invoice), have the person confirm it and wait for `railbed_get_operation` to say `completed`, then ask the person to open its page and continue with an email. Never open the page or enter an email yourself: that starts a payment. Its `payment_id` is known as soon as it exists, which is why this is the quickest way to a Test payment. `railbed_list_payments` with `status` `open` or `pending` finds recent payments, and `railbed_get_payment` shows `started_at`.
 
 Use a new payment for each scenario that finishes a payment. A declined outcome keeps the payment open, so it can be retried on the same payment.
 

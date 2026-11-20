@@ -1,6 +1,6 @@
 ---
 name: inspect-payments
-description: Look up Railbed payments, orders and customers in the connected business, explain a payment's status and settlement evidence, or total paid payments for an explicit period with railbed_get_payment_summary. Use for questions such as "was INV-0042 paid", "what did we take yesterday" or "why is this payment held".
+description: Look up Railbed payments, orders and customers in the connected business, explain a payment's status and settlement evidence, or total paid payments for an explicit period with railbed_get_payment_summary. Use for questions such as "was order 1042 paid", "what did we take yesterday", "how much came in last week", "who is this customer" or "why is this payment held". For invoices, use invoice-customers.
 ---
 
 # Inspect payments
@@ -13,7 +13,8 @@ Start with `railbed_get_connection` and state the business and mode. Test record
 - A status question: `railbed_list_payments` with `status` (`open`, `pending`, `paid`, `held`, `failed` or `expired`) and `created_gte` or `created_lte` in Unix seconds.
 - A buyer: `railbed_list_customers` with `email`, then `railbed_get_customer` or `railbed_list_orders` with `customer_id` only when the question needs them. Detail reads return contact and shipping data; keep to what was asked.
 - An order: `railbed_get_order` for items, totals, fulfilment and `payment_ids`.
-- Payment links and reusable checkouts have their own lists: `railbed_list_payment_links` and `railbed_list_checkouts`, with `railbed_get_checkout` for one checkout's configuration.
+- An invoice: each payment toward one carries its `invoice_id` and any `tip`. `railbed_get_invoice` shows what has been paid and what is still due; the `invoice-customers` skill covers invoice questions in full.
+- Reusable checkouts: `railbed_list_checkouts`, with `railbed_get_checkout` for one checkout's configuration. One-off links made through the API are listed with the invoices, and on their own by `railbed_list_payment_links`.
 
 Lists return 20 records by default and 50 at most, newest first. Follow `next_cursor` with the same filters only as far as the question needs, and say when an answer covers a page rather than everything. Never add up a page and call it a total.
 
